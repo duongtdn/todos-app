@@ -2,4 +2,7 @@
 
 import app from 'todos-view'
 
-app.init();
+import ad from './admob'
+
+
+app.init().exec(ad.initAdmob);

@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.todostogether"
+        },
+        "com.admob.plugin": {
+            "PACKAGE_NAME": "io.cordova.todostogether"
         }
     },
     "dependent_plugins": {}

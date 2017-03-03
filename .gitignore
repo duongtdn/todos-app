@@ -1,5 +1,6 @@
 www/lib/
-www/node_modules/
+node_modules/
 www/bundle.js
 platforms/
+plugins/
 npm-debug.log

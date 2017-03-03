@@ -6,9 +6,9 @@
   "author": "duongtdn",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel www/src -d www/lib",
     "prepublish": "npm run build",
-    "compile": "npm run build && browserify lib/ -o bundle.js && echo Compile finished"
+    "compile": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished"
   },
   "dependencies": {
 
