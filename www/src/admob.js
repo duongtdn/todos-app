@@ -32,7 +32,8 @@ function initAdmob() {
     if (admob) {
         admob.initAdmob(admobid.banner, admobid.interstitial);
     }
-    showTopBanner();
+    // showTopBanner()
+    showBottomBanner();
 }
 
 export default {

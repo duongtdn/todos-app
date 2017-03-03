@@ -5,4 +5,13 @@ import app from 'todos-view'
 import ad from './admob'
 
 
-app.init().exec(ad.initAdmob);
+app
+  .init()
+  .exec(ad.initAdmob)
+  .exec(() => {
+    if (cordova.platformId == 'android') {
+      StatusBar.backgroundColorByHexString("#009688");
+      // StatusBar.backgroundColorByName('teal');
+      alert('set background color for android')
+    }
+  });

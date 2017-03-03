@@ -12,6 +12,9 @@
         },
         "com.admob.plugin": {
             "PACKAGE_NAME": "io.cordova.todostogether"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.cordova.todostogether"
         }
     },
     "dependent_plugins": {}
