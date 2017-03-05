@@ -8,7 +8,8 @@
   "scripts": {
     "build": "babel www/src -d www/lib",
     "prepublish": "npm run build",
-    "compile": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished"
+    "compile": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
+    "emulate": "npm run compile && cordova emulate"
   },
   "dependencies": {
 
