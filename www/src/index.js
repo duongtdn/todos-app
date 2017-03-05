@@ -11,7 +11,5 @@ app
   .exec(() => {
     if (cordova.platformId == 'android') {
       StatusBar.backgroundColorByHexString("#009688");
-      // StatusBar.backgroundColorByName('teal');
-      alert('set background color for android')
     }
   });
