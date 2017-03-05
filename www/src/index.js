@@ -12,4 +12,5 @@ app
     if (cordova.platformId == 'android') {
       StatusBar.backgroundColorByHexString("#009688");
     }
-  });
+  })
+  .addPlugin({ ad : ad });
