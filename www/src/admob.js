@@ -31,11 +31,35 @@ function showBanner(position) {
 function initAdmob() {
     if (admob) {
         admob.initAdmob(admobid.banner, admobid.interstitial);
+        document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
+        // initial cache ingerstitial ad
+        const admobParam = new  admob.Params();
+        admobParam.isTesting=true;
+        admob.cacheInterstitial(admobParam);
+    }
+}
+
+function onInterstitialReceive() {
+    console.log('receivce interestitial');
+}
+
+function showInterstitial() {
+    if (admob) {
+        admob.isInterstitialReady(ready => {
+            if(ready){
+                admob.showInterstitial();
+                // cache new ad
+                const admobParam = new  admob.Params();
+                admobParam.isTesting=true;
+                admob.cacheInterstitial(admobParam);
+            }
+        });
     }
 }
 
 export default {
   initAdmob,
   showTopBanner,
-  showBottomBanner
+  showBottomBanner,
+  showInterstitial
 }
