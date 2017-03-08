@@ -40,25 +40,30 @@ export default {
     this.showBanner(admob.Position.BOTTOM_APP);
   },
 
-  showBanner(position) {
+  showBanner(position, successCallback) {
     const admobParam = new  admob.Params();
     admobParam.isTesting=true;
-    admob.showBanner(admob.BannerSize.SMART_BANNER, position, admobParam);
+    admob.showBanner(admob.BannerSize.SMART_BANNER, position, admobParam, successCallback);
   },
 
   hideBanner() {
     admob.hideBanner();
   },
 
-  showInterstitial() {
+  showInterstitial(successCallback) {
+    function callback() {
+        // cache new ad
+        const admobParam = new  admob.Params();
+        admobParam.isTesting=true;
+        admob.cacheInterstitial(admobParam);
+
+        successCallback();
+    }
     if (admob) {
         admob.isInterstitialReady(ready => {
             if(ready){
-                admob.showInterstitial();
-                // cache new ad
-                const admobParam = new  admob.Params();
-                admobParam.isTesting=true;
-                admob.cacheInterstitial(admobParam);
+                admob.showInterstitial(callback);
+                
             }
         });
     }
