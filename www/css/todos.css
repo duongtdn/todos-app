@@ -1,8 +1,12 @@
 
 /* TODOS */
 
+.list__header {
+  padding-right: 15px;
+}
+
 ons-tabbar .list {
-  background-color: grey;
+  /*background-color: grey;*/
   overflow-x: hidden;
 }
 
@@ -459,4 +463,54 @@ ons-toolbar.navigation-bar--material ons-input[type=search] span {
 .dummy-btn {
   position: fixed;
   top: -100px;
+}
+
+
+.badge {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #ffc107;
+  border-radius: 10px;
+}
+
+.menu-badge-android {
+  left: -30px;
+  position: relative;
+  top: -10px;
+  min-width: 6px;
+  font-size: 14px;
+}
+
+.menu-badge-ios {
+  left: -26px;
+  position: relative;
+  top: -10px;
+  min-width: 5px;
+  font-size: 12px;
+}
+
+.fe-title {
+  width : 100%;
+  margin-bottom: 6px;
+  color : grey;
+  font-size: 14px;
+}
+
+.fe-input {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.toolbar-button--material {
+  font-size: 20px;
 }
