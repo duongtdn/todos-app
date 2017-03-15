@@ -9,8 +9,9 @@ app
   .init()
   .exec(ad.initAdmob)
   .exec(() => {
-    if (cordova.platformId == 'android') {
-      StatusBar.backgroundColorByHexString("#009688");
+    if (cordova.platformId == 'ios') {
+      StatusBar.overlaysWebView(false);
     }
+    StatusBar.backgroundColorByHexString("#009688");
   })
   .addPlugin({ ad : ad });
