@@ -14,21 +14,21 @@ if( /(android)/i.test(navigator.userAgent) ) {
     };
 }
 
-function onInterstitialReceive() {
-    console.log('receivce interestitial');
-}
-
+// function onInterstitialReceive() {
+//     console.log('receivce interestitial');
+// }
 
 export default {
 
   initAdmob() {
     if (admob) {
         admob.initAdmob(admobid.banner, admobid.interstitial);
-        document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
-        // initial cache ingerstitial ad
-        const admobParam = new  admob.Params();
-        admobParam.isTesting=true;
-        admob.cacheInterstitial(admobParam);
+        
+        // document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
+        // // initial cache ingerstitial ad
+        // const admobParam = new  admob.Params();
+        // admobParam.isTesting=true;
+        // admob.cacheInterstitial(admobParam);
     }
   },
 
@@ -50,23 +50,23 @@ export default {
     admob.hideBanner();
   },
 
-  showInterstitial(successCallback) {
-    function callback() {
-        // cache new ad
-        const admobParam = new  admob.Params();
-        admobParam.isTesting=true;
-        admob.cacheInterstitial(admobParam);
+//   showInterstitial(successCallback) {
+//     function callback() {
+//         // cache new ad
+//         const admobParam = new  admob.Params();
+//         admobParam.isTesting=true;
+//         admob.cacheInterstitial(admobParam);
 
-        successCallback();
-    }
-    if (admob) {
-        admob.isInterstitialReady(ready => {
-            if(ready){
-                admob.showInterstitial(callback);
+//         successCallback();
+//     }
+//     if (admob) {
+//         admob.isInterstitialReady(ready => {
+//             if(ready){
+//                 admob.showInterstitial(callback);
                 
-            }
-        });
-    }
-  }
+//             }
+//         });
+//     }
+//   }
 
 }
