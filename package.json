@@ -6,10 +6,13 @@
   "author": "duongtdn",
   "license": "MIT",
   "scripts": {
-    "build": "babel www/src -d www/lib",
+    "clean": "rm -rf www/lib && rm -rf www/css",
+    "prepare": "cp -R node_modules/todos-view/css www/ && cp -R node_modules/todos-view/node_modules/onsenui/css www/",
+    "babel": "babel www/src -d www/lib",
+    "build": "npm run clean && npm run prepare && npm run babel",
     "prepublish": "npm run build",
-    "compile": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
-    "emulate": "npm run compile && cordova emulate"
+    "bundle": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
+    "emulate": "npm run bundle && cordova emulate"
   },
   "dependencies": {
 
