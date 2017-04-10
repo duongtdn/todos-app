@@ -12,7 +12,8 @@
     "build": "npm run clean && npm run prepare && npm run babel",
     "prepublish": "npm run build",
     "bundle": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
-    "emulate": "npm run bundle && cordova emulate"
+    "emulate": "npm run bundle && cordova emulate",
+    "program": "npm run bundle && cordova run"
   },
   "dependencies": {
 
