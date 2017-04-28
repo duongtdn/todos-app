@@ -96,5 +96,5 @@
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.2" />
     <!-- splash screen -->
-    <preference name="SplashScreenDelay" value="1000" />
+    <preference name="SplashScreenDelay" value="3000" />
 </widget>
