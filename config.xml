@@ -89,6 +89,9 @@
         <splash src="res/screen/ios/Default-667h@2x~iphone.png" width="750" height="1334"/>
         <splash src="res/screen/ios/Default-Portrait-736h@3x.png" width="1242" height="2208"/>
         <splash src="res/screen/ios/Default-Landscape-736h@3x.png" width="2208" height="1242"/>
+        
+        <!-- Local backup Web storage -->
+        <preference name="BackupWebStorage" value="local"/>
 
     </platform>
     <engine name="browser" spec="~4.1.0" />
