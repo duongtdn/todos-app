@@ -14,59 +14,37 @@ if( /(android)/i.test(navigator.userAgent) ) {
     };
 }
 
-// function onInterstitialReceive() {
-//     console.log('receivce interestitial');
-// }
-
 export default {
 
   initAdmob() {
-    if (admob) {
-        admob.initAdmob(admobid.banner, admobid.interstitial);
-        
-        // document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
-        // // initial cache ingerstitial ad
-        // const admobParam = new  admob.Params();
-        // admobParam.isTesting=true;
-        // admob.cacheInterstitial(admobParam);
+    if (admob) {      
+        admob.setOptions({ 
+          publisherId: admobid.banner, 
+          autoShowBanner: false,
+          adSize: admob.AD_SIZE.SMART_BANNER,
+          overlap: false,
+          offsetStatusBar: true,
+          isTesting: true 
+        });
+        admob.createBannerView();
     }
   },
 
   showTopBanner() {
-    this.showBanner(admob.Position.TOP_APP);
+    admob.createBannerView({ bannerAtTop: true });
+    this.showBanner();
   },
 
   showBottomBanner() {
-    this.showBanner(admob.Position.BOTTOM_APP);
+    this.showBanner();
   },
 
-  showBanner(position, successCallback) {
-    const admobParam = new  admob.Params();
-    admobParam.isTesting=true;
-    admob.showBanner(admob.BannerSize.SMART_BANNER, position, admobParam, successCallback);
+  showBanner() {
+    admob.showBannerAd();
   },
 
   hideBanner() {
-    admob.hideBanner();
+    admob.destroyBannerView();
   },
-
-//   showInterstitial(successCallback) {
-//     function callback() {
-//         // cache new ad
-//         const admobParam = new  admob.Params();
-//         admobParam.isTesting=true;
-//         admob.cacheInterstitial(admobParam);
-
-//         successCallback();
-//     }
-//     if (admob) {
-//         admob.isInterstitialReady(ready => {
-//             if(ready){
-//                 admob.showInterstitial(callback);
-                
-//             }
-//         });
-//     }
-//   }
 
 }
