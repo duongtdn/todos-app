@@ -7,25 +7,25 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
+        "cordova-admob": {
+            "PACKAGE_NAME": "com.stormgle.todotogether"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
+            "PACKAGE_NAME": "com.stormgle.todotogether"
         },
-        "cordova-admob": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.stormgle.todotogether"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.stormgle.todotogether"
         }
     },
     "dependent_plugins": {
         "cordova-connectivity-monitor": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
+            "PACKAGE_NAME": "com.stormgle.todotogether"
         },
         "cordova-libgoogleadmobads": {
-            "PACKAGE_NAME": "io.cordova.todostogether"
+            "PACKAGE_NAME": "com.stormgle.todotogether"
         }
     }
 }
