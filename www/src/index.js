@@ -12,6 +12,6 @@ app
     if (cordova.platformId == 'ios') {
       StatusBar.overlaysWebView(false);
     }
-    StatusBar.backgroundColorByHexString("#009688");
+    StatusBar.backgroundColorByHexString("#2196F3");
   })
   .addPlugin({ ad : ad });
