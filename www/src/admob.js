@@ -4,13 +4,13 @@
 let admobid = {};
 if( /(android)/i.test(navigator.userAgent) ) { 
     admobid = { // for Android
-        banner: 'ca-app-pub-2593477801129708/3511727273',
-        interstitial: 'ca-app-pub-2593477801129708/4988460478'
+        banner: 'ca-app-pub-2164395546527370/4306537844',
+        interstitial: 'ca-app-pub-2164395546527370/7260004243'
     };
 } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
     admobid = { // for iOS
-        banner: 'ca-app-pub-2593477801129708/4756618070',
-        interstitial: 'ca-app-pub-2593477801129708/5128061276'
+        banner: 'ca-app-pub-2164395546527370/5922871844',
+        interstitial: 'ca-app-pub-2164395546527370/1353071444'
     };
 }
 
@@ -24,7 +24,7 @@ export default {
           adSize: admob.AD_SIZE.SMART_BANNER,
           overlap: false,
           offsetStatusBar: true,
-          isTesting: true 
+          isTesting: false, 
         });
         admob.createBannerView();
     }

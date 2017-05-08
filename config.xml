@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.stormgle.todotogether" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.inoutek.todotogether" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Todo Together</name>
     <description>
         A collaborative Todo Application
     </description>
-    <author email="duongtdn@stormgle.com" href="http://stormgle.com">
+    <author email="duongtdn@inoutek.com" href="http://inoutek.com">
         Stormgle's Eagle Squad
     </author>
     <content src="index.html" />
