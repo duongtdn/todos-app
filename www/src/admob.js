@@ -20,27 +20,26 @@ export default {
     if (admob) {      
         admob.setOptions({ 
           publisherId: admobid.banner, 
-          autoShowBanner: false,
+          autoShowBanner: true,
+          autoShowInterstitial: false,
           adSize: admob.AD_SIZE.SMART_BANNER,
           overlap: false,
           offsetStatusBar: true,
           isTesting: false, 
         });
-        admob.createBannerView();
     }
   },
 
   showTopBanner() {
     admob.createBannerView({ bannerAtTop: true });
-    this.showBanner();
   },
 
   showBottomBanner() {
-    this.showBanner();
+    admob.createBannerView({ bannerAtTop: false });
   },
 
   showBanner() {
-    admob.showBannerAd();
+    admob.createBannerView();
   },
 
   hideBanner() {
