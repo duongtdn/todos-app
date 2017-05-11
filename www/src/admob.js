@@ -16,6 +16,14 @@ if( /(android)/i.test(navigator.userAgent) ) {
 
 export default {
 
+  getEvents(){
+    if (admob) {
+      return admob.events;
+    } else {
+      return null;
+    }
+  },
+
   initAdmob() {
     if (admob) {      
         admob.setOptions({ 
