@@ -1,28 +1,49 @@
 {
-  "name": "todos-app",
-  "version": "1.0.0",
-  "description": "todos app",
-  "main": "lib/index.js",
-  "author": "duongtdn",
-  "license": "MIT",
-  "scripts": {
-    "clean": "rm -rf www/lib && rm -rf www/css",
-    "prepare": "cp -R node_modules/todos-view/css www/ && cp -R node_modules/todos-view/node_modules/onsenui/css www/",
-    "babel": "babel www/src -d www/lib",
-    "build": "npm run clean && npm run prepare && npm run babel",
-    "prepublish": "npm run build",
-    "bundle": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
-    "emulate": "npm run bundle && cordova emulate",
-    "program": "npm run bundle && cordova run"
-  },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-preset-es2015": "^6.13.2",
-    "babel-preset-react": "^6.11.1",
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "browserify": "^13.1.1"
-  }
+    "name": "todos-app",
+    "version": "1.0.0",
+    "description": "todos app",
+    "main": "lib/index.js",
+    "author": "duongtdn",
+    "license": "MIT",
+    "scripts": {
+        "clean": "rm -rf www/lib && rm -rf www/css",
+        "prepare": "cp -R node_modules/todos-view/css www/ && cp -R node_modules/todos-view/node_modules/onsenui/css www/",
+        "babel": "babel www/src -d www/lib",
+        "build": "npm run clean && npm run prepare && npm run babel",
+        "prepublish": "npm run build",
+        "bundle": "npm run build && browserify www/lib/ -o www/bundle.js && echo Compile finished",
+        "emulate": "npm run bundle && cordova emulate",
+        "program": "npm run bundle && cordova run"
+    },
+    "dependencies": {
+        "cordova-browser": "~4.1.0",
+        "cordova-android": "~6.1.2",
+        "cordova-ios": "~4.3.1",
+        "cordova-admob": "~4.1.16",
+        "cordova-plugin-network-information": "~1.3.3",
+        "cordova-plugin-splashscreen": "~4.0.2",
+        "cordova-plugin-statusbar": "~2.2.1",
+        "cordova-plugin-whitelist": "1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.11.4",
+        "babel-preset-es2015": "^6.13.2",
+        "babel-preset-react": "^6.11.1",
+        "babel-plugin-transform-object-rest-spread": "^6.16.0",
+        "browserify": "^13.1.1"
+    },
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-admob": {},
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-whitelist": {}
+        }
+    }
 }
