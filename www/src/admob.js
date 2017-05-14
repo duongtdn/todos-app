@@ -60,6 +60,7 @@ export default {
 
   showBanner() {
     admob.createBannerView();
+    /* manually schedule for next ad request */
     this.scheduleNextAdRequest();
   },
 
@@ -67,7 +68,6 @@ export default {
     admob.destroyBannerView();
   },
 
-  /* not use right now */
   scheduleNextAdRequest() {
     /* make request */
     setTimeout(() => {
@@ -75,7 +75,6 @@ export default {
     }, TO);
   },
 
-  /* not use right now */
   requestAd() {
     /* before making ad request, check the time eslapsed. If it is greater then
        timeout, then make a request.
