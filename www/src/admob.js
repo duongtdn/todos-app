@@ -21,14 +21,6 @@ let ts = 0; // global captured timestamp in each time ad request is invoked
 
 export default {
 
-  getEvents(){
-    if (admob) {
-      return admob.events;
-    } else {
-      return null;
-    }
-  },
-
   initAdmob() {
     if (admob) {       
         /* setup admob options */    
@@ -43,8 +35,17 @@ export default {
         });
         /* register event for manual request by destroy and create banner
            when ad is loaded, setup a timeout for request ad */
+        /* strange issue, this variable under this func is undefined */
         // document.addEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
            
+    }
+  },
+
+  getEvents() {
+    if (admob) {
+      return admob.events;
+    } else {
+      return null;
     }
   },
 
@@ -60,8 +61,12 @@ export default {
 
   showBanner() {
     admob.createBannerView();
-    /* manually schedule for next ad request */
-    this.scheduleNextAdRequest();
+    /* manually schedule for next ad request
+       currently android admob sdk will hide the banner view when manually create
+       them, so I disabled manual request for better user experience */
+    if (device.platform === 'iOS') {
+      this.scheduleNextAdRequest();
+    }   
   },
 
   hideBanner() {
