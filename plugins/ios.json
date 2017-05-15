@@ -21,6 +21,9 @@
         },
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.inoutek.todotogether"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.inoutek.todotogether"
         }
     },
     "dependent_plugins": {
