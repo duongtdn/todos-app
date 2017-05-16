@@ -46,7 +46,7 @@ export default {
           document.addEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
         }  
         if (device.platform === 'Android') {
-          document.addEventListener('resume', this.requestAd, false);
+          document.addEventListener('pause', this.requestAd, false);
         }
         return this;
     }
@@ -83,7 +83,7 @@ export default {
       document.removeEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
     }  
     if (device.platform === 'Android') {
-      document.removeEventListener('resume', this.requestAd, false);
+      document.removeEventListener('pause', this.requestAd, false);
     }
   },
 
