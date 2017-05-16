@@ -7,7 +7,7 @@ import ad from './admob'
 
 app
   .init()
-  .exec(ad.initAdmob)
+  // .exec(ad.initAdmob.bind(ad))
   .exec(() => {
     if (cordova.platformId == 'ios') {
       StatusBar.overlaysWebView(false);

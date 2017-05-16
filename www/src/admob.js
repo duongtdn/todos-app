@@ -21,8 +21,10 @@ let ts = 0; // global captured timestamp in each time ad request is invoked
 
 export default {
 
+  isShowing: false,
+
   initAdmob() {
-    if (admob) {       
+    if (admob) {  
         /* setup admob options */    
         admob.setOptions({ 
           publisherId: admobid.banner, 
@@ -33,11 +35,20 @@ export default {
           offsetStatusBar: true,
           isTesting: false, 
         });
-        /* register event for manual request by destroy and create banner
-           when ad is loaded, setup a timeout for request ad */
-        /* strange issue, this variable under this func is undefined */
-        // document.addEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
-           
+        /* register event for manual request by create new banner when ad is 
+           loaded, setup a timeout for request ad
+           currently android admob sdk will hide the banner view when re-create 
+           them, so for android, I only make request when app is resume to 
+           foreground for better user experience */
+        this.scheduleNextAdRequest = this.scheduleNextAdRequest.bind(this);   
+        this.requestAd = this.requestAd.bind(this);
+        if (device.platform === 'iOS') {
+          document.addEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
+        }  
+        if (device.platform === 'Android') {
+          document.addEventListener('resume', this.requestAd, false);
+        }
+        return this;
     }
   },
 
@@ -60,17 +71,20 @@ export default {
   },
 
   showBanner() {
-    admob.createBannerView();
-    /* manually schedule for next ad request
-       currently android admob sdk will hide the banner view when manually create
-       them, so I disabled manual request for better user experience */
-    if (device.platform === 'iOS') {
-      this.scheduleNextAdRequest();
-    }   
+    this.isShowing = true;
+    admob.createBannerView();  
   },
 
   hideBanner() {
     admob.destroyBannerView();
+    this.isShowing = false;
+    /* remove all event listeners */
+    if (device.platform === 'iOS') {
+      document.removeEventListener(admob.events.onAdLoaded, this.scheduleNextAdRequest, false);
+    }  
+    if (device.platform === 'Android') {
+      document.removeEventListener('resume', this.requestAd, false);
+    }
   },
 
   scheduleNextAdRequest() {
@@ -81,6 +95,15 @@ export default {
   },
 
   requestAd() {
+
+    if (!this.isShowing) { return; }
+
+    if (device.platform === 'Android') {
+      /* manual make request */
+      this.showBanner();
+      return;
+    }
+
     /* before making ad request, check the time eslapsed. If it is greater then
        timeout, then make a request.
        if app is offline, setup another timeout for detect connection status */
@@ -105,7 +128,6 @@ export default {
     }
 
     /* manual make request */
-    // this.hideBanner();
     this.showBanner();
 
   }
